@@ -31,4 +31,15 @@ public class ConfigurationSingletonTest {
         assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
         assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
     }
+
+    @Test
+    void configurationDeep() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass()); //=> EnhancerBySpringCGLIB 스프링빈 등록할 때 조작하는 것
+        // 내가 만든 것이 아니라 임의의 다른 클래스가 싱클톤이 보장되도록 보장
+        //@Bean이 붙어있으면 컨테이너에 등록되어있으면 찾아서 반환하고 없으면 만듬
+        //@Configuration 없애면 EnhancerBySpringCGLIB 없어짐
+    }
 }
