@@ -19,10 +19,11 @@ import org.springframework.context.annotation.FilterType;
         //AppConfig와 충돌 되지 않기 위해
 )
 public class AutoAppConfig {
-
+/*
     //충돌 안남 -> 수동으로 등록한 것이 우선 권 -> 충돌은 안나는데 override
     @Bean("memoryMemberRepository")
     MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
+ */
 }
