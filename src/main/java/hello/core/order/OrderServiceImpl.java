@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
@@ -31,11 +31,11 @@ public class OrderServiceImpl implements OrderService {
     }*/
 
     //@RequiredArgsConstructor 이걸 만들면 final 붙은 객체의 생성자 (아래와 같이 만들어줌)
-    /*@Autowired
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
-    }/*
+    }
     //생성자가 딱 하나일 때는 @Autowired 생략되어도 @Component만 있어도 자동으로 주입 됨
 
     /*@Autowired
