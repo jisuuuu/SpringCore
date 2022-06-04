@@ -1,5 +1,8 @@
 package hello.core.lifecycle;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class NetworkClient {
 
     private String url;
@@ -27,13 +30,15 @@ public class NetworkClient {
     }
 
     //properties 가 끝나면, 의존 관계가 끝나면, 거의 사용하지 않음 왜냐면 더 좋은 방법 존재
-    public void init() throws Exception {
+    @PostConstruct
+    public void init() {
         System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메세지");
     }
 
-    public void close() throws Exception {
+    @PreDestroy
+    public void close() {
         System.out.println("NetworkClient.close");
         disconnect();
     }
