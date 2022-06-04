@@ -27,6 +27,9 @@ public class PrototypeTest {
 
         assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
 
+        prototypeBean1.destroy();
+        prototypeBean2.destroy();
+        //요청할 때마다 새로 생성됨, 초기화 까지만 관여하고 종료는 관여X
         ac.close();
     }
 
